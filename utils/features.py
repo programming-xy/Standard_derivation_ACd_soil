@@ -24,7 +24,7 @@ def batch_analyze_files(uploaded_files, model):
             
             # 描述性统计
             stats_df = df[CONFIG["FEATURE_COLS"] + [CONFIG["TARGET_COL"]]].describe()
-            stats_df = stats_df.round(CONFIG["STATS_DECIMALS"])
+            stats_df = round(stats_df, CONFIG["STATS_DECIMALS"])
             with st.expander(f"📊 {file.name} statistics", expanded=False):
                 st.dataframe(stats_df, use_container_width=True)
             
