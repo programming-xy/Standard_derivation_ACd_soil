@@ -1,10 +1,18 @@
 # formal_requirments
-# ºËÐÄÒÀÀµ£¨´úÂëÖÐÃ÷È·µ÷ÓÃ£©
-pandas>=1.5.0          # Êý¾Ý¶ÁÈ¡/´¦Àí/±í¸ñÕ¹Ê¾
-numpy>=1.21.0          # ÊýÖµ¼ÆËã/3DÍø¸ñÉú³É
-matplotlib>=3.5.0      # 3D¿ÉÊÓ»¯»æÍ¼
-streamlit>=1.28.0      # Web½çÃæ½»»¥£¨ºËÐÄ¿ò¼Ü£©
-scikit-learn>=1.1.0    # R2ÆÀ·Ö¼ÆËã£¨r2_score£©
-xgboost>=1.7.0         # Ä£ÐÍ¼ÓÔØ/Ô¤²â£¨XGBoostÄ£ÐÍ£©
-openpyxl>=3.0.0        # ExcelÎÄ¼þ¶ÁÈ¡£¨.xlsx£©
-xlrd>=2.0.0            # ¼æÈÝ¾É°æExcel£¨.xls£©
+# å…ˆé”å®špipç‰ˆæœ¬
+pip==24.0
+
+# æ ¸å¿ƒä¾èµ–ï¼ˆå®Œæ•´ç‰ˆï¼‰
+pandas>=1.5.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+streamlit>=1.28.0
+scikit-learn>=1.1.0
+xgboost>=1.7.0
+openpyxl>=3.0.0
+xlrd>=2.0.0
+# è¡¥å……Streamlitä¾èµ–çš„é™„å±žåŒ…ï¼ˆé¿å…å®‰è£…å¤±è´¥ï¼‰
+markdown-it-py>=4.0.0
+mdurl>=0.1.2
+pygments>=2.19.2
+rich>=14.2.0
