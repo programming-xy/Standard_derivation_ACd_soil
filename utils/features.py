@@ -48,9 +48,9 @@ def batch_analyze_files(uploaded_files, model):
             y_pred_ori = exp_transform(y_pred_log)
             
             # 计算指标
-            batch_pred_median = np.median(y_pred_ori).round(CONFIG["STATS_DECIMALS"])
-            r2_log_scale = r2_score(y_true_log, y_pred_log).round(CONFIG["STATS_DECIMALS"])
-            r2_ori_scale = r2_score(y_true, y_pred_ori).round(CONFIG["STATS_DECIMALS"])
+            batch_pred_median = round(np.median(y_pred_ori), CONFIG["STATS_DECIMALS"])
+	     r2_log_scale = round(r2_score(y_true_log, y_pred_log), CONFIG["STATS_DECIMALS"])
+	     r2_ori_scale = round(r2_score(y_true, y_pred_ori), CONFIG["STATS_DECIMALS"])
             
             # 展示结果
             col1, col2 = st.columns(2)
@@ -63,8 +63,8 @@ def batch_analyze_files(uploaded_files, model):
             
             # 下载结果
             pred_df = df.copy()
-            pred_df['ACd_predictive values (logarithmic scale)'] = y_pred_log.round(CONFIG["STATS_DECIMALS"])
-            pred_df['ACd_predictive values (original scale)'] = y_pred_ori.round(CONFIG["STATS_DECIMALS"])
+            pred_df['ACd_predictive values (logarithmic scale)'] = round(y_pred_log, CONFIG["STATS_DECIMALS"])
+            pred_df['ACd_predictive values (original scale)'] = round(y_pred_ori, CONFIG["STATS_DECIMALS"])
             csv_data = pred_df.to_csv(index=False, encoding="utf-8-sig")
             st.download_button(
                 label=f"💾 Downloading {file.name} prediction results",
@@ -153,13 +153,13 @@ def derive_acd_standard(model, data_stats, r2_log_scale):
         ACd_pred_ori = exp_transform(ACd_pred_log)
         
         ACd_ori_flat = ACd_pred_ori.flatten()
-        raw_median = np.median(ACd_ori_flat).round(CONFIG["STANDARD_DERIVE_CONFIG"]["decimal"])
+        raw_median = round(np.median(ACd_ori_flat), CONFIG["STANDARD_DERIVE_CONFIG"]["decimal"])
         
         if not (0 < r2_log_scale <= 1):
             st.warning(f"⚠️ R²={r2_log_scale} is abnormal")
             corrected_median = raw_median
         else:
-            corrected_median = (raw_median / r2_log_scale).round(CONFIG["STANDARD_DERIVE_CONFIG"]["decimal"])
+            corrected_median = round(raw_median / r2_log_scale, CONFIG["STANDARD_DERIVE_CONFIG"]["decimal"])
         
         # 绘图配置
         plt.rcParams["font.family"] = "Times New Roman"
