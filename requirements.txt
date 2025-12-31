@@ -1,0 +1,10 @@
+# formal_requirments
+# 核心依赖（代码中明确调用）
+pandas>=1.5.0          # 数据读取/处理/表格展示
+numpy>=1.21.0          # 数值计算/3D网格生成
+matplotlib>=3.5.0      # 3D可视化绘图
+streamlit>=1.28.0      # Web界面交互（核心框架）
+scikit-learn>=1.1.0    # R2评分计算（r2_score）
+xgboost>=1.7.0         # 模型加载/预测（XGBoost模型）
+openpyxl>=3.0.0        # Excel文件读取（.xlsx）
+xlrd>=2.0.0            # 兼容旧版Excel（.xls）
