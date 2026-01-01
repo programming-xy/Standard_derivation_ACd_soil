@@ -225,7 +225,8 @@ def derive_acd_standard(model, data_stats, r2_log_scale):
         
         fig = plt.figure(
             figsize=CONFIG["STANDARD_DERIVE_CONFIG"]["plot"]["figsize"],
-            dpi=CONFIG["STANDARD_DERIVE_CONFIG"]["plot"]["dpi"]
+            dpi=CONFIG["STANDARD_DERIVE_CONFIG"]["plot"]["dpi"],
+            constrained_layout=True  # 自动适配布局，避免标签被截断
         )
         ax = fig.add_subplot(111, projection='3d')
         
@@ -258,6 +259,7 @@ def derive_acd_standard(model, data_stats, r2_log_scale):
             elev=CONFIG["STANDARD_DERIVE_CONFIG"]["plot"]["view_elev"],
             azim=CONFIG["STANDARD_DERIVE_CONFIG"]["plot"]["view_azim"]
         )
+        ax.set_box_aspect(aspect=(1, 1, 0.8))  # 调整3D图的长宽高比例，避免拉伸
         
         # 展示结果指标
         st.subheader("🎯 ACd标准推导结果")
