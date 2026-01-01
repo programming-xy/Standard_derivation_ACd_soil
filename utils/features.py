@@ -81,8 +81,8 @@ def batch_analyze_files(uploaded_files, model):
             
             # 生成并提供结果下载
             pred_df = df.copy()
-            pred_df['ACd预测值（对数尺度）'] = round(y_pred_log, CONFIG["STATS_DECIMALS"])
-            pred_df['ACd预测值（原始尺度）'] = round(y_pred_ori, CONFIG["STATS_DECIMALS"])
+            pred_df['ACd预测值（对数尺度）'] = np.round(y_pred_log, CONFIG["STATS_DECIMALS"])
+            pred_df['ACd预测值（原始尺度）'] = np.round(y_pred_ori, CONFIG["STATS_DECIMALS"])
             csv_data = pred_df.to_csv(index=False, encoding="utf-8-sig")
             st.download_button(
                 label=f"💾 下载 {file.name} 预测结果",
