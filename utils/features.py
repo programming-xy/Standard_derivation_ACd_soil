@@ -48,7 +48,7 @@ def batch_analyze_files(uploaded_files, model):
             y_pred_ori = exp_transform(y_pred_log)
             
             # 计算指标
-            batch_pred_median = round(np.median(y_pred_ori), CONFIG["STATS_DECIMALS"])
+			batch_pred_median = round(np.median(y_pred_ori), CONFIG["STATS_DECIMALS"])
 			r2_log_scale = round(r2_score(y_true_log, y_pred_log), CONFIG["STATS_DECIMALS"])
 			r2_ori_scale = round(r2_score(y_true, y_pred_ori), CONFIG["STATS_DECIMALS"])
             
